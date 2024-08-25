@@ -1,19 +1,28 @@
-import os
-import sys
-import inspect
-currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-parentdir = os.path.dirname(currentdir)
-sys.path.insert(0, parentdir)
+import pytest
 from myfile_Melika import hello, age, count, sqaure
 
-def test_hello():
-    assert hello('Melika') == 'Hello Dear Melika'
+@pytest.mark.parametrize("x, expected", [
+    ('Melika', 'Hello Dear Melika')])
+def test_hello(x, expected):
+    result = hello(x)
+    assert result == expected
 
-def test_age():
-    assert age(2000, 2024) == 24
+@pytest.mark.parametrize("x, y, expected", [
+    (2000, 2024, 24)])
+def test_age(x, y, expected):
+    result = age(x, y)
+    assert result == expected
 
-def test_count():
-    assert count(6) == 21
+@pytest.mark.xfail(reason="Intentional fail for demonstration")
+@pytest.mark.parametrize("x, expected", [
+    (6, 21)])
+def test_count_fail(x, y, expected):
+    result = count(x, y)
+    assert result == expected, f"Expected {x} * {y} to be {expected}, but got {result}"
 
-def test_square():
-    assert sqaure(10) == 81
+@pytest.mark.xfail(reason="Intentional fail for demonstration")
+@pytest.mark.parametrize("x, expected", [
+    (10, 81)])
+def test_square_fail(x, y, expected):
+    result = sqaure(x, y)
+    assert result == expected, f"Expected {x} / {y} to be {expected}, but got {result}"
