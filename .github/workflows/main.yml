@@ -11,7 +11,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-          fetch-depth: 0
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -23,25 +23,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest pytest-cov
 
-    - name: Run tests
+    - name: Run tests and generate coverage report
       run: |
-        pytest --cov=
+        pytest --cov=. --cov-report=xml --cov-report=term
 
-    - name: Upload results to Codecov
+    - name: Upload coverage report to Codecov
       uses: codecov/codecov-action@v4
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-    
-    - name: Generate coverage badge
-      run: |
-        pip install coverage-badge
-        coverage-badge -o coverage.svg -f
-
-    - name: Commit coverage badge
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add coverage.svg
-        git commit -m 'Update coverage badge' || exit 0
-        git push
-
+        files: ./coverage.xml
+        flags: unittests
+        name: codecov-coverage
+        fail_ci_if_error: true
