@@ -13,16 +13,16 @@ def test_age(x, y, expected):
     result = age(x, y)
     assert result == expected
 
-@pytest.mark.xfail(reason="Intentional fail for demonstration")
+#@pytest.mark.xfail(reason="Intentional fail for demonstration")
 @pytest.mark.parametrize("x, expected", [
     (6, 21)])
-def test_count_fail(x, y, expected):
-    result = count(x, y)
-    assert result == expected, f"Expected {x} * {y} to be {expected}, but got {result}"
+def test_count_fail(x, expected):
+    result = count(x)
+    assert result == expected
 
-@pytest.mark.xfail(reason="Intentional fail for demonstration")
+#@pytest.mark.xfail(reason="Intentional fail for demonstration")
 @pytest.mark.parametrize("x, expected", [
     (10, 81)])
-def test_square_fail(x, y, expected):
-    result = sqaure(x, y)
-    assert result == expected, f"Expected {x} / {y} to be {expected}, but got {result}"
+def test_square_fail(x,expected):
+    result = sqaure(x)
+    assert result == expected
