@@ -4,7 +4,7 @@
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black) 
 ![MIT License](https://img.shields.io/badge/License-MIT-red.svg) 
 ![GitHub repo size](https://img.shields.io/github/repo-size/CSC510-SE-HW1/hw1) 
-![Workflow](https://github.com/CSC510-SE-HW1/hw1/actions/workflows/main.yml/badge.svg) 
+[![Workflow](https://github.com/CSC510-SE-HW1/hw1/actions/workflows/main.yml/badge.svg)](https://github.com/CSC510-SE-HW1/hw1/actions/workflows/main.yml)
 ![GitHub Pull Requests](https://img.shields.io/github/issues-pr/CSC510-SE-HW1/hw1) 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/CSC510-SE-HW1/hw1) 
 ![GitHub contributors](https://img.shields.io/github/contributors/CSC510-SE-HW1/hw1) 
